@@ -11,10 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.tacoscloud.entities.Ingredient.Type;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
@@ -26,6 +23,12 @@ public class DesignTacoController {
     public String showDesingForm(Model model){
         model.addAttribute("taco", new Taco());
         return "design";
+    }
+
+    @PostMapping
+    public String processTaco(Taco taco){
+        log.info("Processing taco: " +taco);
+        return "redirect:/orders/current";
     }
 
     @ModelAttribute
