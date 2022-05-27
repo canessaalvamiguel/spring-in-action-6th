@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.tacoscloud.entities.Ingredient.Type;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -26,7 +29,11 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(Taco taco){
+    public String processTaco(@Valid @ModelAttribute("taco") Taco taco, Errors errors){
+        if(errors.hasErrors()){
+            return "design";
+        }
+
         log.info("Processing taco: " +taco);
         return "redirect:/orders/current";
     }
