@@ -20,7 +20,7 @@ create table if not exists Taco (
 create table if not exists Ingredient_Ref (
     ingredient varchar(4) not null,
     taco bigint not null,
-    taco_key bigint not null
+    taco_key bigint null --need to check how to insert this autoincrement value automatically using JPA
     );
 create table if not exists Ingredient (
     id varchar(4) not null primary key ,
