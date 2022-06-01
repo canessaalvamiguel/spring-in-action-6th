@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import com.example.tacoscloud.entities.Ingredient.Type;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -39,10 +40,11 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(@Valid @ModelAttribute("taco") Taco taco, Errors errors){
+    public String processTaco(@Valid @ModelAttribute("taco") Taco taco, Errors errors, RedirectAttributes redirectAttributes){
         if(errors.hasErrors()){
             return "design";
         }
+        redirectAttributes.addFlashAttribute("taco", taco);
 
         log.info("Processing taco: " +taco);
         return "redirect:/orders/current";
