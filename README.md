@@ -5,10 +5,10 @@ This is the sample code for Spring in Action, 6th Edition, by Craig Walls.
 - [x] Spring Boot
 - [X] Lombok
 - [X] Spring Boot Starter Validation
-- [X] JDBC
-- [x] JPA
+- [X] [JDBC](https://github.com/canessaalvamiguel/spring-in-action-6th/tree/tacocloud-Using-relational-db-h2-spring-data-jdbc)
+- [x] [JPA](https://github.com/canessaalvamiguel/spring-in-action-6th/tree/tacocloud-Using-relational-db-h2-spring-data-jpa)
 - [x] Hibernate
-- [X] Cassandra
+- [X] [Cassandra](https://github.com/canessaalvamiguel/spring-in-action-6th/tree/tacocloud-Using-noSql-Apache-Cassandra)
 
 ### Available entry URL
 - http://localhost:8080/
