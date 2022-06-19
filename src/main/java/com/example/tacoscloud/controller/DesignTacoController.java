@@ -42,6 +42,7 @@ public class DesignTacoController {
     @PostMapping
     public String processTaco(@Valid @ModelAttribute("taco") Taco taco, Errors errors, RedirectAttributes redirectAttributes){
         if(errors.hasErrors()){
+            log.error(errors.getAllErrors().toString());
             return "design";
         }
         redirectAttributes.addFlashAttribute("taco", taco);
