@@ -5,7 +5,6 @@ This is the sample code for Spring in Action, 6th Edition, by Craig Walls.
 - [x] Spring Boot
 - [X] Lombok
 - [X] Spring Boot Starter Validation
-- [x] Hibernate
 - [X] Cassandra
 
 ### Available entry URL
