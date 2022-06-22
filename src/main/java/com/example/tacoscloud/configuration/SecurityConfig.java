@@ -24,7 +24,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+    @Bean(name = "userDetailsServiceWithEncoder")
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         List<UserDetails> usersList = new ArrayList<>();
         usersList.add(new User(
@@ -38,7 +38,7 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(usersList);
     }
 
-    @Bean
+    @Bean(name = "userDetailsServiceWithUserRepo")
     public UserDetailsService userDetailsService(UserRepository userRepo) {
         return username -> {
             com.example.tacoscloud.entities.User user = userRepo.findByUsername(username);
