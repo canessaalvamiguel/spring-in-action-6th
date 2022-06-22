@@ -1,19 +1,24 @@
 package com.example.tacoscloud.entities;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
 
 @Data
-@Document(collection = "ingredients")
+@Entity
 @AllArgsConstructor
-@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@NoArgsConstructor(access=AccessLevel.PUBLIC, force=true)
 public class Ingredient {
 
     @Id
     private String id;
     private String name;
-    private Type type;
+
+    @Enumerated(EnumType.STRING)
+    private final Type type;
 
     public enum Type{
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE

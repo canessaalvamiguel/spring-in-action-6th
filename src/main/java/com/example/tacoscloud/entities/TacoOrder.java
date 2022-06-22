@@ -2,9 +2,8 @@ package com.example.tacoscloud.entities;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -15,12 +14,13 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Document( collection = "orders")
+@Entity
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id ;
 
     private Date placedAt = new Date();
@@ -55,8 +55,11 @@ public class TacoOrder implements Serializable {
     private String ccExpiration;
 
     @Digits(integer=3, fraction=0, message="Invalid CVV")
+    @Column(name = "cc_cvv")
     private String ccCVV;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "taco_order", nullable=false)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {
