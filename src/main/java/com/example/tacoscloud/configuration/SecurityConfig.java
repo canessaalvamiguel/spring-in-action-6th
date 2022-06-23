@@ -53,6 +53,9 @@ public class SecurityConfig implements WebMvcConfigurer {
                     .loginPage("/login")
                     .defaultSuccessUrl("/design", true)
                 .and()
+                .logout()
+                    .logoutSuccessUrl("/")
+                .and()
                 .build();
     }
 
