@@ -1,3 +1,14 @@
+create table if not exists Users (
+                                    id identity primary key,
+                                    username varchar(50) not null,
+                                    password varchar(100) not null,
+                                    fullname varchar(50) not null,
+                                    street varchar(50) not null,
+                                    city varchar(50) not null,
+                                    state varchar(50) not null,
+                                    zip varchar(10) not null,
+                                    phoneNumber varchar(10) not null
+);
 create table if not exists Taco_Order (
                                           id identity primary key,
                                           delivery_Name varchar(50) not null,
