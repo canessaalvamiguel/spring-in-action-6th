@@ -10,6 +10,7 @@ This is the sample code for Spring in Action, 6th Edition, by Craig Walls.
 - [x] Hibernate
 - [X] [Cassandra](https://github.com/canessaalvamiguel/spring-in-action-6th/tree/tacocloud-Using-noSql-Apache-Cassandra)
 - [X] [MongoDB](https://github.com/canessaalvamiguel/spring-in-action-6th/tree/tacocloud-Using-noSql-MongoDB)
+- [x] Spring Security
 
 ### Available entry URL
 - http://localhost:8080/
