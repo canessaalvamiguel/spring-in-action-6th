@@ -14,10 +14,4 @@ This is the sample code for Spring in Action, 6th Edition, by Craig Walls.
 
 ### Available entry URL
 - http://localhost:8080/
-- http://localhost:8080/design
-
-### Steps to create mongodb db usign docker
-
-```
-$ docker run -p 27017:27017 -d mongo:latest
-```
+- http://localhost:8080/login
