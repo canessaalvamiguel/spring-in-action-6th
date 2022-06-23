@@ -11,7 +11,7 @@
 </form>
 <h1>Design your taco!</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
-<form method="POST" th:object="${taco}">
+<form method="POST" th:object="${taco}" th:action="@{/design}">
     <div class="grid">
         <div class="ingredient-group" id="wraps">
             <h3>Designate your wrap:</h3>
@@ -60,7 +60,6 @@
         <br/>
         <button>Submit Your Taco</button>
     </div>
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 </form>
 </body>
 </html>
