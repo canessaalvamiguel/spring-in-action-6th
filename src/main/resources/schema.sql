@@ -11,6 +11,7 @@ create table if not exists Users (
 );
 create table if not exists Taco_Order (
                                           id identity primary key,
+                                          user_id bigint not null,
                                           delivery_Name varchar(50) not null,
                                           delivery_Street varchar(50) not null,
                                           delivery_City varchar(50) not null,

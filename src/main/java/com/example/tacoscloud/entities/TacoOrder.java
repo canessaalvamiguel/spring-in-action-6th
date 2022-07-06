@@ -62,6 +62,10 @@ public class TacoOrder implements Serializable {
     @JoinColumn(name = "taco_order", nullable=false)
     private List<Taco> tacos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
     }
