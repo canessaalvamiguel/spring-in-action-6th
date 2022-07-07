@@ -4,6 +4,7 @@ import com.example.tacoscloud.entities.Taco;
 import com.example.tacoscloud.entities.TacoOrder;
 import com.example.tacoscloud.repository.OrderRepository;
 import com.example.tacoscloud.repository.TacoRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -81,5 +82,13 @@ public class TacoController {
             order.setCcCVV(patch.getCcCVV());
         }
         return orderRepository.save(order);
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOrder(@PathVariable("orderId") Long orderId){
+        try{
+            orderRepository.deleteById(orderId);
+        }catch (EmptyResultDataAccessException e){}
     }
 }
