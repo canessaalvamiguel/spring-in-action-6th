@@ -59,11 +59,11 @@ public class TacoOrder implements Serializable {
     private String ccCVV;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "taco_order", nullable=false)
+    @JoinColumn(name = "taco_order")
     private List<Taco> tacos = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
     public void addTaco(Taco taco) {
